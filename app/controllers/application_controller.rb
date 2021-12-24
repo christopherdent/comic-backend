@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::API
-
+class ApplicationController < ActionController::Base
+    
     helper_method :login!, :logged_in?, :current_user,     :authorized_user?, :logout!, :set_user
 
     def login! 
