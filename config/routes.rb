@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create, :show, :index]
 
-  # get 'user/comics', to: "comics#get_comics"
+  post '/login',    to: 'sessions#create'
+  post '/logout',   to: 'sessions#destroy'
+  get '/logged_in', to: 'sessions#is_logged_in?'
 
-  # resources :comics
+  resources :users, only: [:create, :show, :index] do 
+  resources :comics, only: [:create, :show, :index, :destroy]
+  end 
+ 
 
 end
