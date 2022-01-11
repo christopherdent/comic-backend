@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/logged_in', to: 'sessions#is_logged_in?'
 
   resources :users, only: [:create, :show, :index] do 
-  resources :comics, only: [:create, :show, :index, :destroy]
+    resources :comics, only: [:create, :show, :index, :destroy]
   end 
  
 

@@ -22,12 +22,14 @@ class UsersController < ApplicationController
     end 
     
     def create
+        puts('hit it')
+     
      @user=User.new(user_params)
       if @user.save 
         login! 
          render json: { user: @user } 
       else 
-        render json: {errors: user.errors.full_messages.to_sentence}, status: :unprocessable_entity 
+        render json: {errors: @user.errors.full_messages.to_sentence}, status: :unprocessable_entity 
       end
     end
     
